@@ -1,0 +1,52 @@
+﻿@model GerenciadorCondominios.BLL.Models.Aluguel
+
+@{
+    ViewData["Title"] = "Editar aluguel";
+}
+
+<div class="formulario">
+    <div class="collection with-header">
+        <form asp-action="Edit">
+            <div class="collection-header blue darken-3">
+                <h6 class="white-text">Editar aluguel</h6>
+            </div>
+
+            <div class="collection-item">
+                <div asp-validation-summary="ModelOnly" class="red-text text-darken-4"></div>
+
+                <input type="hidden" asp-for="Codigo" />
+                <div class="row">
+                    <div class="input-field col s12">
+                        <input asp-for="Valor" class="validate" id="valor" />
+                        <label asp-for="Valor" id="valor"></label>
+                        <span class="red-text text-darken-4" asp-validation-for="Valor"></span>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="input-field col s12">
+                        <select asp-for="codigoMes" class="validate" asp-items="ViewBag.codigoMes" id="mes"></select>
+                        <label asp-for="codigoMes" id="mes">Selecione o mês</label>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="input-field col s12">
+                        <input asp-for="Ano" class="validate" id="ano" />
+                        <label asp-for="Ano" id="ano"></label>
+                        <span class="red-text text-darken-4" asp-validation-for="Ano"></span>
+                    </div>
+                </div>
+
+                <div class="collection-item">
+                    <button type="submit" class="btn-small blue darken-3">Salvar</button> &emsp;
+                    <a asp-action="Index" asp-controller="Aluguel">Voltar</a>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+@section Scripts{
+    <script src="~/js/InicializarSelect.js"></script>
+}
