@@ -1,0 +1,67 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - GerenciadorCondominios</title>
+    <environment include="Development">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.css">
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <link href="~/css/site.css" rel="stylesheet" />
+    </environment>
+
+    <environment exclude="Development">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <link href="~/css/site.min.css" rel="stylesheet" />
+    </environment>
+</head>
+<body>
+    <header>
+        <nav class="grey darken-3">
+            <div class="nav-wrapper navbar-fixed">
+                <ul id="nav-mobile" class="right hide-on-med-and-down">
+                    <li class="nav-item"><a class="nav-link" asp-controller="Evento" asp-action="Index">Eventos</a></li>
+                    <li class="nav-item"><a class="nav-link" asp-controller="Usuario" asp-action="MinhasInformacoes">Minhas Informações</a></li>
+                    <li class="nav-item"><a class="nav-link" asp-controller="Servico" asp-action="Index">Serviços</a></li>
+                    <li class="nav-item"><a class="nav-link" asp-controller="Apartamento" asp-action="Index">Apartamentos</a></li>
+                    <li class="nav-item"><a class="nav-link" asp-controller="Funcao" asp-action="Index">Funções</a></li>
+                    <li class="nav-item"><a class="nav-link" asp-controller="Aluguel" asp-action="Index">Aluguéis</a></li>
+                    <li class="nav-item"><a class="nav-link" asp-controller="Pagamento" asp-action="Index">Pagamentos</a></li>
+                    <li class="nav-item"><partial name="_logout" /></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+    <div class="conteudo-principal">
+        <div class="body-content">
+            <main role="main" class="pb-3">
+                @RenderBody()
+            </main>
+        </div>
+
+        <footer class="border-top footer text-muted">
+            <div class="container">
+                &copy; 2021 - GerenciadorCondominios - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+            </div>
+        </footer>
+    </div>
+    <environment include="Development">
+        <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.js"></script>
+        <script src="~/js/site.js" asp-append-version="true"></script>
+        <script src="~/js/OperacoesUsuario.js"></script>
+        <script src="~/js/InicializarTooltips.js"></script>
+        @RenderSection("Scripts", required: false)
+    </environment>
+
+    <environment exclude="Development">
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+        <script src="~/js/site.min.js" asp-append-version="true"></script>
+        <script src="~/js/OperacoesUsuario.min.js"></script>
+        <script src="~/js/InicializarTooltips.js"></script>
+        @RenderSection("Scripts", required: false)
+    </environment>
+</body>
+</html>
